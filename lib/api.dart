@@ -4,7 +4,7 @@ import 'package:async/async.dart';
 import 'dart:convert';
 
 
-const CHAVE_YOUTUBE_API = "AIzaSyAoV9DB32dWxDf0tauJDAFmFtxaC-L3LsA";
+const CHAVE_YOUTUBE_API = "SUA CHAVE";
 const ID_CANAL ="UCUccuEMBFvbl01u_h8jitVg";
 const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 
