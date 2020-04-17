@@ -4,31 +4,42 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Inicial extends StatefulWidget {
+
+  String pesquisa;
+
+  Inicial(this.pesquisa);
+
   @override
   _inicialState createState() => _inicialState();
 }
 
 class _inicialState extends State<Inicial> {
-  _listarVideos() {
+
+  _listarVideos(String pesquisa) {
+
     Api api = Api();
-    return api.pesquisar("");
+    return api.pesquisar(pesquisa);
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Video>>(
-      future: _listarVideos(),
+      future: _listarVideos(widget.pesquisa),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
           case ConnectionState.waiting:
+
             return Center(
               child: CircularProgressIndicator(),
             );
             break;
+
           case ConnectionState.active:
           case ConnectionState.done:
+
             if (snapshot.hasData) {
+
               return ListView.separated(
                   itemBuilder: (context, index){
                     List<Video> videos = snapshot.data;
